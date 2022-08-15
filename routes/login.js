@@ -4,13 +4,12 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const headers = {'header1': value}
 
 router.get("/", async (req,res) => {
     res.send("pres")
 })
 
-router.post("/", async (req,res)  => {
+router.post("/", async (req,res) => {
     let user = await User.find( { username: req.body.username } )
     if(user.length === 1)
     {
@@ -25,6 +24,7 @@ router.post("/", async (req,res)  => {
                 }
 
                 const token = jwt.sign(userObject, process.env.FIRSTSECRET, {expiresIn:120000});
+                console.log(token)
                 let result = res.cookie('token',token,{httpOnly:true,sameSite:'lax'});
                 res.send();
             }
