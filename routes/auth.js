@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 
 router.get("/", (req, res) => {
-
+setTimeout(()=>{    
     const token = req.cookies.token;
     console.log(req.cookies)
     // om det finns en cookie med namnet token
@@ -23,6 +23,7 @@ router.get("/", (req, res) => {
     else{
         res.send("/login?mes=No_Token_Provided");
     }
+    },10000)
 })
 
 module.exports = router; 
