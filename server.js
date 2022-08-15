@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mo
 .catch(err => console.error('could not connect', err))
 
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:true}));
 app.use(cors({origin: true, credentials: true}))
 //nytt
 app.use('/menu', menu);
