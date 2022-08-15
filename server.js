@@ -1,11 +1,10 @@
 const express = require("express");
 const app = express()
-const cookieParser = require("cookie-parser");
-
 const mongoose = require("mongoose")
 const cors = require('cors')
 require('dotenv').config();
 //nytt
+
 const auth = require('./routes/auth')
 const menu = require('./routes/menu');
 const login = require('./routes/login')
@@ -18,10 +17,8 @@ mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mo
 .then(() => console.log('connected to MongoDB..'))
 .catch(err => console.error('could not connect', err))
 
-
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cookieParser());
 app.use(cors({origin: true, credentials: true}))
 app.use(bodyParser.urlencoded({ extended: true}));
 
