@@ -11,7 +11,11 @@ const login = require('./routes/login')
 const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
 
-
+app.use(
+    cors({
+        origin: "*",
+    })
+)
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})
 .then(() => console.log('connected to MongoDB..'))
@@ -24,6 +28,11 @@ app.use(cors({origin: true, credentials: true}))
 app.use(bodyParser.urlencoded({ extended: false}));
 
 //nytt
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://192.168.1.120.TDL"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  })
 app.use('/menu', menu);
 app.use('/login', login)
 app.use('/secret', auth)
