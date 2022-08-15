@@ -11,7 +11,7 @@ const menu = require('./routes/menu');
 const login = require('./routes/login')
 const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
-app.use(cors())
+app.use(cors({origin: true, credentials: true}))
 
 
 
