@@ -20,7 +20,7 @@ mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mo
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors({origin: true, credentials: true}))
+app.use(cors({origin: false, credentials: false}))
 app.use(bodyParser.urlencoded({ extended: true}));
 
 //nytt
