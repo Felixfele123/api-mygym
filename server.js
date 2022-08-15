@@ -1,7 +1,8 @@
 const express = require("express");
+const cors = require('cors')
+
 const app = express()
 const mongoose = require("mongoose")
-const cors = require('cors')
 require('dotenv').config();
 //nytt
 const cookieParser = require("cookie-parser");
@@ -10,6 +11,7 @@ const menu = require('./routes/menu');
 const login = require('./routes/login')
 const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
+app.use(cors())
 
 
 
@@ -20,7 +22,6 @@ mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mo
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true}));
 
 //nytt
