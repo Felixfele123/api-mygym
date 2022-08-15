@@ -16,11 +16,7 @@ const bodyParser = require('body-parser')
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})
 .then(() => console.log('connected to MongoDB..'))
 .catch(err => console.error('could not connect', err))
-app.use(
-    cors({
-        origin: "http://192.168.1.120:8080"
-    })
-)
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
