@@ -13,7 +13,7 @@ const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
 app.use(cors({origin: true, credentials: true}))
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.setHeader("Access-Control-Allow-Origin", "localhost:8080");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept"
