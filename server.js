@@ -6,7 +6,7 @@ require('dotenv').config();
 const schema = require('./routes/schema');
 const workout = require('./routes/workout');
 
-mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/mygym', { useUnifiedTopology: true, useNewUrlParser: true})
+mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})
 .then(() => console.log('connected to MongoDB..'))
 .catch(err => console.error('could not connect', err))
 
