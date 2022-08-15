@@ -12,7 +12,14 @@ const login = require('./routes/login')
 const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
 app.use(cors({origin: true, credentials: true}))
-
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://yoursite.com");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})

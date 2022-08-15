@@ -4,12 +4,13 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const headers = {'header1': value}
 
 router.get("/", async (req,res) => {
     res.send("pres")
 })
 
-router.post("/", async (req,res) => {
+router.post("/", async (req,res)  => {
     let user = await User.find( { username: req.body.username } )
     if(user.length === 1)
     {
