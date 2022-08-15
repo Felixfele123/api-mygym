@@ -20,12 +20,8 @@ mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mo
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors({origin: true, credentials: true}))
+app.use(cors({origin: false, credentials: true}))
 app.use(bodyParser.urlencoded({ extended: true}));
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-  });
 
 //nytt
 app.use('/menu', menu);
