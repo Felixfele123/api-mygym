@@ -8,4 +8,4 @@ router.get("/", (req,res) => {
     res.send({mes: "cookie cleared"});
 })
 
-module.exports = router;
+module.exports = router; 
