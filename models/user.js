@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const workoutSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        minlength: 5,
-        maxlength: 20
+        minlength: 3,
+        maxlength: 50
       },
     password: {
         type: String,
@@ -13,12 +13,12 @@ const userSchema = new mongoose.Schema({
         minlength: 5,
         maxlength: 20
       }, 
-    types: {
-        type: [String],
-        required: true,
-    },
+    schema: {
+        type: Array[String],
+        required: false,
+      }, 
 })
-const User = mongoose.model('User', userSchema);
+const Workout = mongoose.model('Workout', workoutSchema);
 
 
-exports.User = User
+exports.Workout = Workout
