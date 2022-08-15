@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
     if(token)
     {
         try {
+            console.log(process.env.FIRSTSECRET)
             const verified = jwt.verify(token,process.env.FIRSTSECRET);
             req.token = verified;
             res.send(verified);
