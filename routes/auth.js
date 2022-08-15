@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 router.get("/", (req, res) => {
 setTimeout(()=>{    
-    const token = req.cookies.token;
+    const token = JSON.stringify(req.cookies.token);
     console.log(req.cookies)
     // om det finns en cookie med namnet token
     if(token)
