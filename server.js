@@ -29,14 +29,9 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 //nytt
 app.use(function(req, res, next) {
-    res.header({
-        "Access-Control-Allow-Origin": "http://192.168.1.120:8080",
-        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-        'Access-Control-Allow-Methods': 'POST, GET, DELETE, HEAD, OPTIONS',
-        'Access-Control-Allow-Credentials': true
-    }); // update to match the domain you will make the request from
-    res.header();
-    res.header()
+    res.append('Access-Control-Allow-Origin', ['*']);
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
     next();
   })
 app.use('/menu', menu);
