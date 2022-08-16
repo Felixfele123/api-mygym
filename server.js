@@ -28,15 +28,8 @@ app.use(function middleware1(req, res, next) {
     app.use(express.session({ secret: 'cool beans' }));
     app.use(express.methodOverride());
     app.use(allowCrossDomain);
-    app.use(app.router);
-    app.use(express.static(__dirname + '/public'));
     next();
   });
-  app.use(function middleware2(req, res, next) {
-    // middleware 2
-    next();
-  });
-
 
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})
