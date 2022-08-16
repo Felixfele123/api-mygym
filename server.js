@@ -1,6 +1,5 @@
 const express = require("express");
-var connect = require('connect')
-var app = connect();
+const app = express()
 const mongoose = require("mongoose")
 const cors = require('cors')
 require('dotenv').config();
@@ -12,25 +11,11 @@ const login = require('./routes/login')
 const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
 
-//CORS middleware
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-    next();
-}
-
-//...
-app.use(function middleware1(req, res, next) {
-    app.use(express.bodyParser());
-    app.use(express.cookieParser());
-    app.use(express.session({ secret: 'cool beans' }));
-    app.use(express.methodOverride());
-    app.use(allowCrossDomain);
-    next();
-  });
-
+app.use(
+    cors({
+        origin: "*",
+    })
+)
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})
 .then(() => console.log('connected to MongoDB..'))
