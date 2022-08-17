@@ -11,11 +11,10 @@ const login = require('./routes/login')
 const logout = require('./routes/logout')
 const bodyParser = require('body-parser')
 
-app.use(
-    cors({
-        origin: "*",
-    })
-)
+var corsOptions = {
+    origin: 'http://example.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
 
 mongoose.connect('mongodb+srv://felixzandereriksson:Jesper.nu1@cluster0.9idaz.mongodb.net/vaxtorpspizzeria', { useUnifiedTopology: true, useNewUrlParser: true})
 .then(() => console.log('connected to MongoDB..'))
@@ -28,12 +27,6 @@ app.use(cors({origin: true, credentials: true}))
 app.use(bodyParser.urlencoded({ extended: false}));
 
 //nytt
-app.use(function(req, res, next) {
-    res.append('Access-Control-Allow-Origin', ['*']);
-    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.append('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  })
 app.use('/menu', menu);
 app.use('/login', login)
 app.use('/secret', auth)
