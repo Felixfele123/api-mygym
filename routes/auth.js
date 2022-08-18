@@ -7,10 +7,10 @@ const jwt = require("jsonwebtoken");
 router.get("/", (req, res) => {
 
     const token = req.cookies.token;
-    console.log(req.cookies)
     // om det finns en cookie med namnet token
     if(token)
     {
+        console.log("!")
         try {
             const verified = jwt.verify(token,process.env.FIRSTSECRET);
             req.token = verified;

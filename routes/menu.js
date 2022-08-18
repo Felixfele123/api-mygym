@@ -8,7 +8,6 @@ const jwt = require("jsonwebtoken");
 router.get('/', async (req, res) => {
     const token = req.cookies.token;
     // om det finns en cookie med namnet token
-    console.log(req.cookies)
     if(token)
     {
         try {
