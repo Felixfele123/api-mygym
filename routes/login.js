@@ -25,7 +25,7 @@ router.post("/", async (req,res) => {
 
                 const token = jwt.sign(userObject, process.env.FIRSTSECRET, {expiresIn:120000});
                 console.log(token)
-                let result = res.cookie('token',token,{httpOnly:true,sameSite:'none', secure: 'false'});
+                let result = res.cookie('token',token,{httpOnly:true,sameSite:'strict'});
                 res.send();
             }
             else{
